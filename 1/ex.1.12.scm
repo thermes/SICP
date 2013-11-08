@@ -1,0 +1,26 @@
+#! /usr/bin/env gosh
+;;; -*- mode: scheme; coding: utf-8 -*-
+
+(define (pascal-triangle x y)
+  (cond ((or (= x 1)
+	     (= x y)) 1)
+	(else (+ (pascal-triangle (- x 1) (- y 1))
+		 (pascal-triangle x (- y 1))))))
+
+(define (main args)
+  (print (pascal-triangle 1 1))
+  (print (pascal-triangle 1 2))
+  (print (pascal-triangle 2 2))
+  (print (pascal-triangle 1 3))
+  (print (pascal-triangle 2 3))
+  (print (pascal-triangle 3 3))
+  (print (pascal-triangle 1 4))
+  (print (pascal-triangle 2 4))
+  (print (pascal-triangle 3 4))
+  (print (pascal-triangle 4 4))
+  (print (pascal-triangle 1 5))
+  (print (pascal-triangle 2 5))
+  (print (pascal-triangle 3 5))
+  (print (pascal-triangle 4 5))
+  (print (pascal-triangle 5 5))
+  0)
