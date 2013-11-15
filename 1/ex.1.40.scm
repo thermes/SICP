@@ -7,9 +7,3 @@
        (* a (square x))
        (* b x)
        c)))
-
-(define (main args)
-  (print ((deriv cube) 5))
-  (print (sqrt 2))
-  (print (sqrt 4))
-  0)
