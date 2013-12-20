@@ -28,7 +28,7 @@
 
 (define (make-rect2 point width height)
   (cons point
-	(make-point (+ :?=(x-point point) width) (+ (y-point point) height))))
+	(make-point (+ (x-point point) width) (+ (y-point point) height))))
 
 (define (start-point rect)
   (car rect))

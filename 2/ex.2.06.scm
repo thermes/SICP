@@ -15,7 +15,7 @@
 ; ↓
 ; (lambda (f) (lambda (x) (f ((zero f) x))))
 ; ↓
-; (lambda (f) (lambda (x) (f ((((lambda (f) (lambda (x) x)))
+; (lambda (f) (lambda (x) (f ((((lambda (f) (lambda (x) x))) f) x))))
 
 
 ; (((add-1 zero) (lambda (n) (+ n 1))) 100)
