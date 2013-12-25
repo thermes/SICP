@@ -9,4 +9,4 @@
   (print (append x y))
   (print (cons x y))
   (print (list x y))              
-)
+  0)

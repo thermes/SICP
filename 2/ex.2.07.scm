@@ -41,4 +41,4 @@
    (div-interval (make-interval 1 1)
 		 (add-interval (div-interval (make-interval 1 1) r1)
 			       (div-interval (make-interval 1 1) r2))))
-)
+  0)

@@ -27,4 +27,5 @@
   (print (my-car (my-cons 0 0)))
   (print (my-cdr (my-cons 0 0)))
 
-  (newline))
+  (newline)
+  0)

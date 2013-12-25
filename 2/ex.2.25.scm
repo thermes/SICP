@@ -18,4 +18,4 @@
 
   (print z)
   (print (car (cdr (car (cdr (car (cdr (car (cdr (car (cdr (car (cdr z)))))))))))))
-)
+  0)

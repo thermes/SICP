@@ -47,11 +47,14 @@
   (define i1 (make-interval 4 5))
   (define i2 (make-interval 1 2))
   (define i3 (make-interval -1 2))
+
   (display-interval i1)
   (display-interval i2)
   (display-interval i3)
+
   (display-interval (div-interval i1 i2))
   (display-interval (div-interval i1 i3))
+
   (display-interval (new-div-interval i1 i2))
   (display-interval (new-div-interval i1 i3))
-)
+  0)

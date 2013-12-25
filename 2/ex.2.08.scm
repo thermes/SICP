@@ -43,4 +43,4 @@
   (display-interval i2)
   (display-interval (add-interval i1 i2))
   (display-interval (sub-interval i1 i2))
-)
+  0)

@@ -1,7 +1,7 @@
 #! /usr/bin/env gosh
 ;;; -*- mode: scheme; coding: utf-8 -*-
 
-(define nil '())
+(define nil (list))
 
 (define (reverse items)
   (if (null? items)
@@ -11,4 +11,4 @@
 (define (main args)
   (print (reverse (list 1 4 9 16 25)))
   (print (reverse '()))
-)
+  0)

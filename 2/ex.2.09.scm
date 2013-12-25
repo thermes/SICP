@@ -46,14 +46,19 @@
   (define i2 (make-interval 1 2))
   (display-interval i1)
   (display-interval i2)
+
   (print (width-interval i1))
   (print (width-interval i2))
+
   (display-interval (add-interval i1 i2))
   (print (width-interval (add-interval i1 i2)))
+
   (display-interval (sub-interval i1 i2))
   (print (width-interval (sub-interval i1 i2)))
+
   (display-interval (mul-interval i1 i2))
   (print (width-interval (mul-interval i1 i2)))
+
   (display-interval (div-interval i1 i2))
   (print (width-interval (div-interval i1 i2)))
-)
+  0)

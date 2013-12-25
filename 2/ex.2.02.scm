@@ -43,4 +43,5 @@
   
   (print-point (midpoint-segment seg))
 
-  (newline))
+  (newline)
+  0)

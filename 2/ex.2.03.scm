@@ -67,4 +67,5 @@
   (newline)
   (display (area rect2))
 
-  (newline))
+  (newline)
+  0)

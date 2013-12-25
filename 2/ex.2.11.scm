@@ -100,4 +100,4 @@
   (display-interval (new-mul-interval else-x plus-y))
   (display-interval (new-mul-interval else-x minus-y))
   (display-interval (new-mul-interval else-x else-y))
-)
+  0)

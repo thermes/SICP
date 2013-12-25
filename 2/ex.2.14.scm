@@ -111,4 +111,4 @@
   (print (percent (sub-interval i1 i2)))
   (print (percent (mul-interval i1 i2)))
   (print (percent (div-interval i1 i2)))
-)
+  0)

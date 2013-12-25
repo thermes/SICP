@@ -99,4 +99,4 @@
 
   (display-interval (mul-interval i1 i2))
   (print (percent (mul-interval i1 i2)))
-)
+  0)

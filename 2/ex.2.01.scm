@@ -51,4 +51,5 @@
   (print-rat (mul-rat one-half one-third))
   (print-rat (div-rat one-half one-third))
   (print-rat (add-rat one-third one-third))
-  (newline))
+  (newline)
+  0)
