@@ -3,20 +3,15 @@
 
 (define nil (list))
 
-(define (same-parity x . items)
-  (let ((proc (if (= (modulo x 2) 0)
-		  even?
-		  odd?)))
+(define (same-parity first . items)
+  (define (filter predicate items)
     (cond ((null? items)
 	   nil)
+	  ((predicate (car items))
+	   (cons (car items) (filter predicate (cdr items))))
 	  (else
-	   (cons (if (proc (car items))
-		     (car items)
-		     nil)
-		 (same-parity x (cdr items)))))))
-	
-	      
-	      
+	   (filter predicate (cdr items)))))
+  (filter (if (odd? first) odd? even?) (cons first items)))
 
 (define (main args)
   (print (same-parity 1 2 3 4 5 6 7))
