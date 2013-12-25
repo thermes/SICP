@@ -15,16 +15,26 @@
 ; ↓
 ; (lambda (f) (lambda (x) (f ((zero f) x))))
 ; ↓
-; (lambda (f) (lambda (x) (f ((((lambda (f) (lambda (x) x))) f) x))))
+; (lambda (f) (lambda (x) (f (((lambda (f) (lambda (x) x)) f) x))))
+; ↓
+; (lambda (f) (lambda (x) (f ((lambda (x) x) x))))
+; ↓
+; (lambda (f) (lambda (x) (f x)))
 
 
 ; (((add-1 zero) (lambda (n) (+ n 1))) 100)
 ; ↓
 ; (((lambda (f) (lambda (x) (f ((zero f) x)))) (lambda (n) (+ n 1))) 100)
 ; ↓
-; ((lambda (n) (+ n 1)) ((zero (lambda (n) (+ n 1))) 100))
+; (((lambda (f) (lambda (x) (f (((lambda (f) (lambda (x) x)) f) x)))) (lambda (n) (+ n 1))) 100)
 ; ↓
 ; ((lambda (n) (+ n 1)) (((lambda (f) (lambda (x) x)) (lambda (n) (+ n 1))) 100))
+; ↓
+; ((lambda (n) (+ n 1)) ((lambda (x) x) 100))
+; ↓
+; ((lambda (n) (+ n 1)) 100)
+; ↓
+; (+ 100 1)
 
 (define one
   (lambda (f)
@@ -35,9 +45,17 @@
 ; ↓
 ; (((lambda (f) (lambda (x) (f ((one f) x)))) (lambda (n) (+ n 1))) 100)
 ; ↓
-; ((lambda (n) (+ n 1)) ((one (lambda (n) (+ n 1))) 100))
+; (((lambda (f) (lambda (x) (f (((lambda (f) (lambda (x) (f x))) f) x)))) (lambda (n) (+ n 1))) 100)
 ; ↓
 ; ((lambda (n) (+ n 1)) (((lambda (f) (lambda (x) (f x))) (lambda (n) (+ n 1))) 100))
+; ↓
+; ((lambda (n) (+ n 1)) ((lambda (x) ((lambda (n) (+ n 1)) x)) 100))
+; ↓
+; ((lambda (n) (+ n 1)) ((lambda (n) (+ n 1)) 100))
+; ↓
+; ((lambda (n) (+ n 1)) (+ 100 1))
+; ↓
+; (+ (+ 100 1) 1)
 
 (define two
   (lambda (f)
@@ -67,4 +85,4 @@
 
   (print (((plus two three) (lambda (n) (+ n 1))) 0))
   (print (((mult two three) (lambda (n) (+ n 1))) 0))
-)
+  0)
