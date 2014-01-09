@@ -16,5 +16,5 @@
 (define odds (list 1 3 5 7))
 
 (define (main args)
- (print (length odds))
-)
+  (print (length odds))
+  0)

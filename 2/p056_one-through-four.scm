@@ -10,4 +10,4 @@
   (print (car (cdr one-through-four)))
   (print (cons 10 one-through-four))
   (print (cons 5 one-through-four))
-)
+  0)

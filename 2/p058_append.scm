@@ -11,6 +11,6 @@
 (define odds (list 1 3 5 7))
 
 (define (main args)
- (print (append squares odds))
- (print (append odds squares))
-)
+  (print (append squares odds))
+  (print (append odds squares))
+  0)

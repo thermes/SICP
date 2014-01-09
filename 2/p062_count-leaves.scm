@@ -16,4 +16,4 @@
   (print (list x x))
   (print (length (list x x)))
   (print (count-leaves (list x x)))
-)
+  0)

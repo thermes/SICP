@@ -9,5 +9,5 @@
 (define squares (list 1 4 9 16 25))
 
 (define (main args)
- (print (list-ref squares 3))
-)
+  (print (list-ref squares 3))
+  0)
