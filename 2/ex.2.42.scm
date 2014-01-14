@@ -17,11 +17,13 @@
 (define (flatmap proc seq)
   (accumulate append nil (map proc seq)))
 
-(define (adjoin-position new-row k rest-of-queens))
+(define (adjoin-position row col rest)
+  (cons row rest))
 
-(define (empty-board) nil)
+(define empty-board nil)
 
 (define (safe? k positions)
+  #t
   )
 
 (define (queens board-size)
@@ -29,7 +31,7 @@
     (if (= k 0)
 	(list empty-board)
 	(filter
-	 (lambda (positions) (safe? k positions))
+	 (lambda (positions) (safe? #?=k positions))
 	 (flatmap
 	  (lambda (rest-of-queens)
 	    (map (lambda (new-row)
@@ -39,5 +41,5 @@
   (queen-cols board-size))
 
 (define (main args)
-
+  (print (queens 4))
   0)
