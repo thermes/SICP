@@ -23,7 +23,19 @@
 (define empty-board nil)
 
 (define (safe? k positions)
-  #t
+  (define (col-safe? col positions offset)
+    (cond ((null? positions) #t)
+  	  ((or (= col (car positions))
+	       (= (+ col offset) (car positions))
+	       (= (- col offset) (car positions)))
+	   #f)
+  	  (else
+  	   (col-safe? col (cdr positions) (+ 1 offset)))))
+  (if (null? positions)
+      #t
+      (if (null? (cdr positions))
+	  #t
+  	  (col-safe? (car positions) (cdr positions) 1)))
   )
 
 (define (queens board-size)
@@ -31,7 +43,7 @@
     (if (= k 0)
 	(list empty-board)
 	(filter
-	 (lambda (positions) (safe? #?=k positions))
+	 (lambda (positions) (safe? k positions))
 	 (flatmap
 	  (lambda (rest-of-queens)
 	    (map (lambda (new-row)
@@ -41,5 +53,8 @@
   (queen-cols board-size))
 
 (define (main args)
+  ;; ((3 1 4 2) (2 4 1 3))
   (print (queens 4))
+
+  (print (queens 8))
   0)
