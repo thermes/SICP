@@ -35,8 +35,7 @@
       #t
       (if (null? (cdr positions))
 	  #t
-  	  (col-safe? (car positions) (cdr positions) 1)))
-  )
+  	  (col-safe? (car positions) (cdr positions) 1))))
 
 (define (queens board-size)
   (define (queen-cols k)
@@ -56,5 +55,6 @@
   ;; ((3 1 4 2) (2 4 1 3))
   (print (queens 4))
 
+  (print (length (queens 8)))
   (print (queens 8))
   0)
