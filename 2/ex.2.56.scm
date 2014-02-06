@@ -62,14 +62,11 @@
 	  (make-product (deriv (multiplier exp) var)
 			(multiplicand exp))))
 	((exponentiation? exp)
-	 (cond ((= (exponent exp) 0) 1)
-	       ((= (exponent exp) 1) (base exp))
-	       (else
-		(make-product
-		 (make-product
-		  (exponent exp)
-		  (make-exponentiation (base exp) (- (exponent exp) 1)))
-		 (deriv (base exp) var)))))
+	 (make-product
+	  (make-product
+	   (exponent exp)
+	   (make-exponentiation (base exp) (make-sum (exponent exp) -1)))
+	  (deriv (base exp) var)))
 	(else
 	 (error "unknown expression type -- DERIV" exp))))
 
@@ -80,6 +77,8 @@
   (print (deriv '(** x 2) 'x))
   (print (deriv '(** x 3) 'x))
   (print (deriv '(** x 4) 'x))
+
+  (print (deriv '(** x (+ 1 1)) 'x))
 
   (print (deriv '(** (* x 3) 2) 'x))
   (print (deriv '(* 9 (** x 2)) 'x))
