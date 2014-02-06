@@ -71,10 +71,21 @@
 	(else
 	 (error "unknown expression type -- DERIV" exp))))
 
+;; b.
+(define (simplify exp)
+  (if (null? (cdr exp)) (car exp) exp))
+
+(define (augend s) (simplify (cddr s)))
+(define (multiplicand p) (simplify (cddr p)))
+
 (define (main args)
+  (print (deriv '(x + (3 * (x + (y + 2)))) 'x))
+  (print (deriv '(x + 3 * (x + y + 2)) 'x))
+
   (print (deriv '(x + 3) 'x))
   (print (deriv '(x * y) 'x))
   (print (deriv '((x * y) * (x + 3)) 'x))
+  (print (deriv '(x * y * (x + 3)) 'x))
 
   (print (deriv '(x ** -1) 'x))
   (print (deriv '(x ** 0) 'x))
