@@ -20,12 +20,6 @@
               ((< x2 x1)
                (intersection-set set1 (cdr set2)))))))
 
-(define (adjoin-set x set)
-  (cons x set))
-
-(define (union-set set1 set2)
-  (append set1 set2))
-
 (define (main args)
   (define odds '(1 3 5 7 9))
   (define evens '(2 4 6 8 10))
@@ -34,8 +28,4 @@
   (print (intersection-set odds evens))
   (print (intersection-set odds primes))
   (print (intersection-set evens primes))
-
-  (print (union-set odds evens))
-  (print (union-set odds primes))
-  (print (union-set evens primes))
   0)
