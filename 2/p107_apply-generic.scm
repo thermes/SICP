@@ -1,7 +1,7 @@
 #! /usr/bin/env gosh
 ;;; -*- mode: scheme; coding: utf-8 -*-
 
-(define global-array '())
+(define *global-array* '())
 
 (define (make-entry k v) (list k v))
 (define (key entry) (car entry))
@@ -9,18 +9,17 @@
 
 (define (put op type item)
   (define (put-helper k array)
-    (cond ((null? array) (list(make-entry k item)))
+    (cond ((null? array) (list (make-entry k item)))
           ((equal? (key (car array)) k) array)
           (else (cons (car array) (put-helper k (cdr array))))))
-  (set! global-array (put-helper (list op type) global-array)))
+  (set! *global-array* (put-helper (list op type) *global-array*)))
 
 (define (get op type)
   (define (get-helper k array)
     (cond ((null? array) #f)
           ((equal? (key (car array)) k) (value (car array)))
           (else (get-helper k (cdr array)))))
-  (get-helper (list op type) global-array))
-
+  (get-helper (list op type) *global-array*))
 
 
 (define (square x)
@@ -134,8 +133,6 @@
 (define (main args)
   (define z1 (make-from-real-imag 4 5))
   (define z2 (make-from-real-imag 2 3))
-
-  (print global-array)
 
   (print (real-part (add-complex z1 z2)))
   (print (imag-part (add-complex z1 z2)))
