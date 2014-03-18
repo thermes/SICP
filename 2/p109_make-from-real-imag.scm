@@ -32,15 +32,6 @@
 	   (error "Unknown op -- MAKE-FROM-REAL-IMAG" op))))
   dispatch)
 
-(define (make-from-mag-ang r a) 
-  (define (dispatch op) 
-    (cond ((eq? op 'real-part) (* r (cos a))) 
-	  ((eq? op 'imag-part) (* r (sin a))) 
-	  ((eq? op 'magnitude) r) 
-	  ((eq? op 'angle) a) 
-	  (else (error "Unkown op --- MAKE-FROM-MAG-ANG" op)))) 
-  dispatch) 
-
 (define (apply-generic op arg) (arg op))
 
 (define (real-part z) (apply-generic 'real-part z))
@@ -56,8 +47,4 @@
   (print (imag-part (add-complex z1 z2)))
   (print (real-part (sub-complex z1 z2)))
   (print (imag-part (sub-complex z1 z2)))
-  (print (real-part (mul-complex z1 z2)))
-  (print (imag-part (mul-complex z1 z2)))
-  (print (real-part (div-complex z1 z2)))
-  (print (imag-part (div-complex z1 z2)))
   0)
