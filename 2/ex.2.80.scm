@@ -239,7 +239,7 @@
 	 (and (= (real-part z1) (real-part z2))
 	      (= (imag-part z1) (imag-part z2)))))
   (put '=zero? '(complex)
-       (lambda (z) (= (real-part z) (imag-part z) 0)))
+       (lambda (z) (= (magnitude z) 0)))
 (install-complex-package)
 
 (define (make-complex-from-real-imag x y)
