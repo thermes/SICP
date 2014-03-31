@@ -1,12 +1,12 @@
 #! /usr/bin/env gosh
 ;;; -*- mode: scheme; coding: utf-8 -*-
 
-(define random-init 8)
+(define random-init 3)
 
 (define (rand-update x)
-  (let ((a 3)
-	(b 5)
-	(m 13))
+  (let ((a 16385)
+	(b 997)
+	(m 16777216))
     (remainder (+ (* a x) b) m)))
 
 (define rand
@@ -16,6 +16,30 @@
       x)))
 
 (define (main args)
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
+  (print (rand))
   (print (rand))
   (print (rand))
   (print (rand))
